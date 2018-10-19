@@ -1,0 +1,35 @@
+.loader {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;  
+
+  .bubble {
+    width: 1rem;
+    height: 1rem;
+    background-color: $gray-light;
+    border-radius: 100%;
+    transform: scale(0);    
+    animation-name: anim;
+    animation-duration: 1.2s;
+    animation-iteration-count: infinite;        
+
+    &.first {
+      animation-delay: 0s;
+    }
+
+    &.middle {
+      animation-delay: 0.3s;
+    }
+
+    &.last {
+      animation-delay: 0.6s;
+    }
+  }
+}
+
+@keyframes anim {
+  0%   { transform: scale(0); animation-timing-function: cubic-bezier(0.2, 0.2, 0.4, 0.8); }
+  20%  { transform: scale(1); animation-timing-function: cubic-bezier(0.2, 0.6, 0.4, 0.8); }
+  70%  { transform: scale(0); animation-timing-function: cubic-bezier(0.2, 0.6, 0.4, 0.8); }
+  100% {transform: scale(0);}
+}

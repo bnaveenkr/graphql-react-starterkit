@@ -1,0 +1,278 @@
+@mixin shadow-card($transition: false) {
+  box-shadow: 0 2px 4px 0 $card-shadow-color;
+
+  @if $transition == true {
+    transition: box-shadow .3s ease-in-out;
+
+    &:hover {
+      box-shadow: 0 12px 16px 2px $card-hover-shadow-color;
+    }
+  }
+
+}
+
+@mixin shadow-menu() {
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+}
+
+@mixin card() {
+  display: flex;
+  width: $tile-width;
+  height: $tile-height;
+  flex-direction: column;
+  font-size: 1.4rem;
+  background: #fff;
+  border-radius: 0.2rem;
+}
+
+@mixin card-transitions() {
+  &.cardEnter {
+    transform: scale(0.01);
+
+    &.cardEnterActive {
+      transition: all 0.2s $animation-curve-default;
+      transform: scale(1);
+    }
+  }
+
+  &.cardLeave {
+    transform: scale(1);
+
+    &.cardLeaveActive {
+      transition: all 0.2s $animation-curve-default;
+      transform: scale(0.01);
+    }
+  }
+}
+
+@mixin responsive-card-container() {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+
+  @media screen and (max-width: 840px) { width: $total-tile-width; }
+  @media screen and (min-width: 841px) and (max-width: 1160px) { width: $total-tile-width * 2; }
+  @media screen and (min-width: 1161px) and (max-width: 1439px) { width: $total-tile-width * 3; }
+  @media screen and (min-width: 1440px) and (max-width: 1808px) { width: $total-tile-width * 4; }
+  @media screen and (min-width: 1809px) and (max-width: 2128px) { width: $total-tile-width * 5; }
+  @media screen and (min-width: 2129px) and (max-width: 2448px) { width: $total-tile-width * 6; }
+  @media screen and (min-width: 2449px) and (max-width: 2768px) { width: $total-tile-width * 7; }
+}
+
+
+@mixin button() {
+  position: relative;
+  box-sizing: border-box;
+  display: inline-flex;
+  min-width: 9rem;
+  height: 3.2rem;
+  flex-direction: row;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1.2rem;
+  font-family: $default-font-family;
+  font-size: 1.4rem;
+  line-height: 3.2rem;
+  text-align: center;
+  text-decoration: none;
+  letter-spacing: 0;
+  white-space: nowrap;
+  cursor: pointer;
+  border: 0;
+  border-radius: 2px;
+  outline: none;
+  transition:
+  color 0.2s $animation-curve-default,
+  background-color 0.2s $animation-curve-default,
+  box-shadow 0.2s $animation-curve-fast-out-linear-in;
+  text-size-adjust: 100%;
+  font-smoothing: antialiased;
+
+
+  > i {
+    margin-right: 0.6rem;
+    font-size: 120%;
+    vertical-align: middle;
+  }
+
+  &[disabled] {
+    cursor: default;
+  }
+}
+
+@mixin white-button() {
+  @include button();
+  background-color: #fff;
+  border: solid 1px $gray-dark;
+
+  &:hover {
+    background-color: $gray-vlight;
+  }
+
+  &[disabled] {
+    color: $gray-light;
+    border-color: #dde1e6;
+  }
+}
+
+@mixin blue-button() {
+  @include button();
+  color: $white;
+  background-color: $blue-light;
+
+  &:hover {
+    background-color: $blue-med;
+  }
+
+  &[disabled] {
+    background-color: #bfd5ec;
+  }
+}
+
+@mixin icon-button() {
+  @include button();
+
+  width: 3.2rem;
+  min-width: 0;
+  padding: 0;
+  color: $gray-vdark;
+  background: none;
+
+  &[disabled] {
+    color: $gray-med;
+  }
+
+  > i {
+    margin: 0;
+    font-size: 2rem;
+  }
+}
+
+@mixin input() {
+  height: $input-field-height;
+  font-family: $default-font-family;
+  font-size: 1.4rem;
+  color: $input-text-color;
+  text-indent: $input-text-indent;
+  background-color: $input-text-background-color;
+  border: solid 1px $gray-light;
+  border-radius: 2px;
+
+  &:focus {
+    border-color: $blue-light;
+    box-shadow: 0 0 4px 0 rgba($blue-light, 0.5);
+  }
+}
+
+@keyframes fade-in-out {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 1; }
+}
+
+@mixin fade-in-out($arg) {
+  $keyframe-name: fade-in-out;
+  $duration: $arg;
+  animation: fade-in-out $duration linear forwards;
+}
+
+@mixin material-icon($icon) {
+  @extend .material-icons;
+  margin-left: 1rem;
+  font-size: 12px !important;
+  font-weight: bold;
+  content: $icon;
+}
+
+@mixin sorting-icons() {
+  &.arrowUp {
+    &:after {
+      @include material-icon("arrow_upward");
+    }
+  }
+
+  &.arrowDown {
+    &:after {
+      @include material-icon("arrow_downward");
+    }
+  }
+}
+
+@mixin checkbox() {
+  appearance: none;
+  height: 14px;
+  width: 34px;
+  border-radius: 7px;
+  background-color: $gray-light;
+  position: relative;
+  cursor: pointer;
+  vertical-align: top;
+  transition: all 0.3s ease;
+  border: none;
+
+  &:focus {
+    outline: 0;
+  }
+
+  &:after {
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+    background-color: $white;
+    box-shadow: 1px 1px 4px 0 $gray-med;
+    display: block;
+    position: absolute;
+    content:'';
+    top: -3px;
+    right: 14px;
+    left: 0;
+    transition: all 0.3s ease;
+  }
+
+  &:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+
+  &:checked {
+    background-color: $blue-vlight;
+    padding-left: 18px;
+
+    &:after {
+      background-color: $blue-light;
+      box-shadow: 1px 1px 4px 0 $gray-med;
+      right: 0;
+      left: 14px;
+    }
+  }
+}
+
+@mixin radio() {
+  appearance: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:focus {
+    outline: 0;
+  }
+
+  &:after {
+    width: 16px;
+    height: 16px;
+    border-radius: 16px;
+    top: 0;
+    left: 0;
+    position: relative;
+    background-color: $white;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 1px solid $gray-med;
+  }
+
+  &:checked {
+    &:after {
+      border: 5px solid $blue-light;
+    }
+  }
+}

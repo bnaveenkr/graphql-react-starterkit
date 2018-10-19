@@ -1,0 +1,112 @@
+@import "commons";
+
+// Themes
+
+// Primary colors
+$color-primary: $blue-med;
+$color-primary-dark: $blue-dark;
+$color-primary-contrast: $white;
+
+// Accent colors
+$color-accent: $orange-med;
+$color-accent-dark: $orange-dark;
+
+// Fonts
+$base-font-size: 10px;
+
+// Padding
+$global-padding: 8rem;
+
+// AppBar
+$appbar-color: $white;
+$appbar-height: 5.6rem;
+$appbar-h-padding: 3rem;
+$appbar-contrast: $gray-med;
+$appbar-border-size: 0.4rem;
+$appbar-border-color: $orange-med;
+$appbar-title-total-distance: 1rem;
+
+// Buttons
+$button-height: 3.2rem;
+$button-neutral-color: $white;
+$button-neutral-color-contrast: $gray-dark;
+$button-neutral-color-hover: $gray-vlight;
+
+$button-primary-color: $color-primary;
+$button-primary-color-hover: $color-primary-dark;
+$button-primary-color-contrast: $white;
+
+$button-accent-color: $color-accent;
+$button-accent-color-hover: $color-accent-dark;
+$button-accent-color-contrast: $color-primary-contrast;
+
+// Menu
+$menu-item-hover-background: rgba(97, 165, 232, 0.2);
+
+// Tiles
+$tile-width: 30rem;
+$tile-height: 28rem;
+$tile-padding: 1rem;
+$total-tile-width: ($tile-width + $tile-padding * 2);
+$tile-title-color: $gray-vdark;
+$tile-subtitle-color: $gray-med;
+
+// Status LED
+$status-led-error: $red;
+$status-led-live: $green;
+$status-led-in-progress: $orange-med;
+$status-led-rejected: $red;
+$status-led-published: $green;
+$status-led-default: $gray-light;
+
+$card-shadow-color: rgba(170, 170, 170, 1);
+$card-hover-shadow-color: rgba(170, 170, 170, 1);
+
+$default-font-family: "Proxima Nova", sans-serif;
+
+button {
+  text-transform: none !important;
+}
+
+body {
+  padding-top: $appbar-height;
+  font-family: $default-font-family;
+  background-color: #f6f7f8;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+}
+
+* {
+  -moz-osx-font-smoothing: grayscale;
+}
+
+$enable-transition: true;
+$disable-transition: false;
+
+.material-icons {
+  display: inline-block;
+  font-family: "Material Icons", sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  // Support for all WebKit browsers.
+  -webkit-font-smoothing: antialiased;
+
+  // Support for Safari and Chrome.
+  text-rendering: optimizeLegibility;
+
+  // Support for Firefox.
+  -moz-osx-font-smoothing: grayscale;
+
+  // Support for IE.
+  font-feature-settings: "liga";
+}

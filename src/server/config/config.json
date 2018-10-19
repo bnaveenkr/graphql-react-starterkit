@@ -1,0 +1,31 @@
+{
+  "server": {
+    "protocol": "http",
+    "hostname": "localhost",
+    "host": "localhost:8000",
+    "port": 8000,
+    "acceptable": [ "application/json" ],
+    "throttle": {
+      "rate": 50,
+      "burst": 100
+    }
+  },
+  "api": {
+    "url": "/graphql"
+  },
+  "cache": {
+    "static": {
+      "maxAge": "2h",
+      "etag": true,
+      "lastModified": true
+    }
+  },
+  "persistedQueries": false,
+  "graphql": {
+    "mode": "dev",
+    "cacheControl": true,
+    "tracing": true
+  },
+  "ssrMode": false,
+  "maxRetries": 4
+}

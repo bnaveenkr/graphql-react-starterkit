@@ -1,0 +1,71 @@
+// Colors
+$orange-dark: hsl(31, 89, 53);
+$orange-med: hsl(39, 100, 53);
+$orange-light: hsl(39, 100, 77);
+
+$white: hsl(0, 0, 100);
+$green: hsl(127, 58, 51);
+$red: hsl(0, 86, 59);
+
+$gray-vdark: hsl(210, 2, 23);
+$gray-dark: hsl(210, 9, 44);
+$gray-med: hsl(214, 11, 57);
+$gray-light: hsl(214, 11, 76);
+$gray-vlight: hsl(216, 15, 94);
+
+$blue-dark: hsl(210, 100, 39);
+$blue-med: hsl(211, 75, 50);
+$blue-light: hsl(209, 75, 65);
+$blue-vlight: hsl(209, 61, 84);
+
+// Animation
+$animation-duration: 0.35s;
+$animation-delay: $animation-duration / 5;
+$animation-curve-default: cubic-bezier(0.4, 0, 0.2, 1) !default;
+$animation-curve-fast-out-slow-in: cubic-bezier(0.4, 0, 0.2, 1);
+$animation-curve-linear-out-slow-in: cubic-bezier(0, 0, 0.2, 1);
+$animation-curve-fast-out-linear-in: cubic-bezier(0.4, 0, 1, 1);
+
+// Menu
+$menu-padding: 0;
+$menu-fade-duration: 0.2s;
+$menu-expand-duration: 0.3s;
+$menu-background-color: $white;
+$menu-outline-border-radius: 0.2rem;
+
+$menu-item-height: 3rem;
+$menu-item-width: 22rem;
+$menu-item-v-padding: 0;
+$menu-item-h-padding: 1.6rem;
+$menu-item-hover-background: $blue-light;
+$menu-item-selected-background: $blue-light;
+$menu-item-padding: $menu-item-v-padding $menu-item-h-padding;
+
+$menu-divider-height: 1px;
+
+// Input field
+$input-text-indent: 0.8rem;
+$input-field-height: 3.2rem;
+$input-text-color: $gray-med;
+$input-text-background-color: $white;
+
+// Dropdown
+$dropdown-color-white: $white;
+$dropdown-value-border-radius: 1px;
+$dropdown-overflow-max-height: 45vh;
+$dropdown-color-primary: $gray-vdark;
+$dropdown-color-disabled: $gray-vlight;
+$dropdown-input-chevron-offset: 0.8rem;
+$dropdown-value-border-size: $input-field-height / 7;
+$dropdown-value-hover-background: rgba($blue-light, 0.2);
+
+//-- Indexes
+$z-index-highest: 300 !default;
+$z-index-higher: 200 !default;
+$z-index-high: 100 !default;
+$z-index-normal: 1 !default;
+$z-index-low: -100 !default;
+$z-index-lower: -200 !default;
+
+//-- Font Family
+$primary-font-family: "Proxima Nova", sans-serif;

@@ -1,0 +1,22 @@
+.navBar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 300;
+  display: flex;
+  height: $appbar-height;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 3rem;
+  background-color: #4064C8;
+  border-bottom: solid 1px #dce1e6;
+
+  > .logo {
+    display: inline-block;
+    width: 15rem;
+    height: 4.2rem;
+    background: url("media/logo.svg") no-repeat 0 5px / auto 33px;
+  }
+}

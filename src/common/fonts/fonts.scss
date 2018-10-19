@@ -1,0 +1,52 @@
+@font-face {
+  font-family: "Museo Sans Rounded";
+  font-weight: 300;
+  src: url("./MuseoSansRounded-300.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Museo Sans Rounded";
+  font-style: italic, oblique;
+  font-weight: 300;
+  src: url("./MuseoSansRounded-300-Italic.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Museo Sans Rounded";
+  font-weight: 700;
+  src: url("./MuseoSansRounded-700.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Proxima Nova";
+  font-weight: 300;
+  src: url("./ProximaNovaLight.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Proxima Nova";
+  font-weight: 400;
+  src: url("./ProximaNovaReg.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Proxima Nova";
+  font-weight: 700;
+  src: url("./ProximaNovaBold.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Proxima Nova SW07";
+  font-weight: 400;
+  src: url("./ProximaNovaMedium.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Material Icons";
+  font-style: normal;
+  font-weight: 400;
+  src: url("./MaterialIcons-Regular.eot"); // For IE6-8
+  src: url("./MaterialIcons-Regular.woff2") format("woff2");
+  src: url("./MaterialIcons-Regular.woff") format("woff");
+  src: url("./MaterialIcons-Regular.ttf") format("truetype");
+}
