@@ -1,25 +1,36 @@
 {
   "presets": [
-    "react",
-    "env"
+    "@babel/preset-react",
+    "@babel/preset-env"
   ],
   "plugins": [
     "react-hot-loader/babel",
-    "transform-runtime",
+    "@babel/plugin-transform-runtime",
     "add-module-exports",
-    "transform-decorators-legacy",
-    "transform-class-properties",
+    [
+      "@babel/plugin-proposal-decorators",
+      {
+        "legacy": true
+      }
+    ],
+    "@babel/plugin-proposal-class-properties",
     "syntax-trailing-function-commas",
-    "transform-object-rest-spread",
-    "transform-react-constant-elements",
-    "transform-react-inline-elements"
+    "@babel/plugin-proposal-object-rest-spread",
+    "@babel/plugin-transform-react-constant-elements",
+    "@babel/plugin-transform-react-inline-elements"
   ],
   "env": {
     "development": {
       "plugins": [
-        ["babel-plugin-transform-builtin-extend", {
-            "globals": ["Error", "Array"]
-        }]
+        [
+          "babel-plugin-transform-builtin-extend",
+          {
+            "globals": [
+              "Error",
+              "Array"
+            ]
+          }
+        ]
       ]
     }
   }

@@ -1,21 +1,21 @@
-require('babel-register')({
+require('@babel/register')({
     presets: [
-        ['env', {
+        ["@babel/preset-env", {
             'targets': {
                 'node': 'current',
             }
         }],
-        'react',
+        "@babel/preset-react",
     ],
     plugins: [
-        'transform-decorators-legacy',
-        'transform-react-constant-elements',
-        'transform-react-inline-elements',
-        'transform-class-properties',
-        'syntax-trailing-function-commas',
-        'transform-object-rest-spread',
+        ["@babel/plugin-proposal-decorators", { "legacy": true }],
+        "@babel/plugin-proposal-class-properties",
+        "syntax-trailing-function-commas",
+        "@babel/plugin-proposal-object-rest-spread",
+        "@babel/plugin-transform-react-constant-elements",
+        "@babel/plugin-transform-react-inline-elements"
     ],
-    ignore: /node_modules\/(?!(apollo-client)\/).*/,
+    ignore: [/node_modules\/(?!(apollo-client)\/).*/],
 });
 
 require('isomorphic-fetch');
@@ -35,7 +35,7 @@ if (DEVELOPMENT) {
 
 const WebpackIsomorphicTools = require('webpack-isomorphic-tools');
 global.webpackIsomorphicTools = new WebpackIsomorphicTools(isomorphicConfig).server(__dirname, () => {
-    const Server = require('./src/server').default; // eslint-disable-line global-require
+    const Server = require('./src/server'); // eslint-disable-line global-require
     const server = new Server();
     server.start();
 });
