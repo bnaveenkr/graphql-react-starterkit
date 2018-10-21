@@ -27,7 +27,7 @@ const DEVELOPMENT = process.env.NODE_ENV !== 'production';
 if (DEVELOPMENT) {
     if (!require('piping')({ // eslint-disable-line global-require
         hook: true,
-        ignore: /(\/\.|~$|\.json|\.scss|\.log$)/i,
+        ignore: /(\/\.|~$|\.json|\.scss|\.log$|client|common)/i,
     })) {
         return;
     }

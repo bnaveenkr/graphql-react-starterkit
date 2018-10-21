@@ -9,7 +9,9 @@ class IndexRoute extends React.PureComponent {
     render() {
         return (
             <div className={this.props.theme.wrapper}>
-                Yo!
+                <br />
+                <br />
+                Yooooooo!
             </div>
         );
     }

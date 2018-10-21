@@ -18,6 +18,7 @@ const webpackIsomorphicToolsPlugin = new WebpackIsomorphicToolsPlugin(isomorphic
 module.exports = {
     bail: true,
     devtool: 'source-map',
+    mode: 'production',
     context: path.resolve(__dirname, '..'),
     entry: [
         path.resolve(srcPath, 'index'),
