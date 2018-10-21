@@ -11,8 +11,7 @@
     "syntax-trailing-function-commas",
     "transform-object-rest-spread",
     "transform-react-constant-elements",
-    "transform-react-inline-elements",
-    "babel-plugin-inline-import-graphql-ast"
+    "transform-react-inline-elements"
   ],
   "env": {
     "development": {

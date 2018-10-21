@@ -65,6 +65,7 @@ reactTransform[1].transforms.push({
 module.exports = {
     devtool: 'inline-source-map',
     context: path.resolve(__dirname, '..'),
+    mode: 'development',
     entry: {
         main: [
             'webpack-dev-server/client?http://localhost:3000/',
