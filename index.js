@@ -1,21 +1,18 @@
-require('babel-register')({
+require('@babel/register')({
     presets: [
-        ['env', {
-            'targets': {
-                'node': 'current',
-            }
+        ["@babel/preset-env", {
         }],
-        'react',
+        "@babel/preset-react",
     ],
     plugins: [
-        'transform-decorators-legacy',
-        'transform-react-constant-elements',
-        'transform-react-inline-elements',
-        'transform-class-properties',
-        'syntax-trailing-function-commas',
-        'transform-object-rest-spread',
+        ["@babel/plugin-proposal-decorators", { "legacy": true }],
+        "@babel/plugin-proposal-class-properties",
+        "syntax-trailing-function-commas",
+        "@babel/plugin-proposal-object-rest-spread",
+        "@babel/plugin-transform-react-constant-elements",
+        "@babel/plugin-transform-react-inline-elements"
     ],
-    ignore: /node_modules\/(?!(apollo-client)\/).*/,
+    ignore: [/node_modules\/(?!(apollo-client)\/).*/],
 });
 
 require('isomorphic-fetch');
@@ -27,7 +24,7 @@ const DEVELOPMENT = process.env.NODE_ENV !== 'production';
 if (DEVELOPMENT) {
     if (!require('piping')({ // eslint-disable-line global-require
         hook: true,
-        ignore: /(\/\.|~$|\.json|\.scss|\.log$)/i,
+        ignore: /(\/\.|~$|\.json|client|components|\.scss|\.log$)/i,
     })) {
         return;
     }

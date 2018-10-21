@@ -23,4 +23,4 @@ class NotFoundPage extends React.PureComponent {
     }
 }
 
-module.exports = NotFoundPage;
+export default NotFoundPage;

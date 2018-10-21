@@ -3,8 +3,8 @@ const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
 const discardComments = require('postcss-discard-comments');
 const CleanPlugin = require('clean-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const srcPath = path.resolve(__dirname, '../src', 'client');
 const nodeModulesPath = path.join(__dirname, '../node_modules');
 const commonModulesPath = path.resolve(__dirname, '../src', 'common');
@@ -18,6 +18,7 @@ const webpackIsomorphicToolsPlugin = new WebpackIsomorphicToolsPlugin(isomorphic
 module.exports = {
     bail: true,
     devtool: 'source-map',
+    mode: 'production',
     context: path.resolve(__dirname, '..'),
     entry: [
         path.resolve(srcPath, 'index'),
@@ -51,9 +52,10 @@ module.exports = {
         }, {
             test: /\.scss$/,
             include: [srcPath, commonModulesPath, nodeModulesPath],
-            use: ExtractTextPlugin.extract({
-                fallback: 'style-loader',
-                use: [{
+            use: [{
+                loader: MiniCssExtractPlugin.loader,
+            },
+                {
                     loader: 'css-loader',
                     options: {
                         modules: true,
@@ -80,7 +82,6 @@ module.exports = {
                         data: '@import "' + path.resolve(commonModulesPath, 'styles/theme.scss') + '";',
                     },
                 }],
-            }),
         }, {
             test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,
             use: [{
@@ -156,7 +157,6 @@ module.exports = {
             [buildPath, 'webpack-assets.json', 'webpack-stats.json'],
             { root: path.resolve(__dirname, '..') }
         ),
-        new webpack.optimize.CommonsChunkPlugin({ name: 'common' }),
         new webpack.DefinePlugin({
             process: {
                 env: {
@@ -176,10 +176,7 @@ module.exports = {
                 }
             }
         }),
-        new ExtractTextPlugin({
-            allChunks: true,
-            filename: '[name].[contenthash:8].css',
-        }),
+        new MiniCssExtractPlugin(),
         webpackIsomorphicToolsPlugin,
     ],
 };

@@ -14,7 +14,7 @@ require.extensions['.svg'] = function () {
     return;
 };
 
-require('babel-register');
+require('@babel/register');
 
 const chai = require('chai');
 const { JSDOM } = require('jsdom');
