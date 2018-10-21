@@ -6,7 +6,7 @@ import { themr } from 'react-css-themr';
 import Navbar from './Navbar';
 import defaultTheme from './theme.scss';
 import { hot } from 'react-hot-loader'
-
+import Loader from 'components/Loader';
 
 @themr('GlobalWrapper', defaultTheme)
 class App extends React.Component {
@@ -28,7 +28,7 @@ class App extends React.Component {
             <div className={classNames(this.props.theme.wrapper, this.props.className)}>
                 <Navbar />
                 {this.props.children}
-                <br />
+                {/*<Loader />*/}
             </div>
         );
     }

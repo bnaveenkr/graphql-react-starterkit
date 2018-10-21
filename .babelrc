@@ -6,7 +6,6 @@
   "plugins": [
     "react-hot-loader/babel",
     "@babel/plugin-transform-runtime",
-    "add-module-exports",
     [
       "@babel/plugin-proposal-decorators",
       {

@@ -1,5 +1,6 @@
 import React from 'react';
 import { themr } from 'react-css-themr';
+import { hot } from 'react-hot-loader'
 
 import defaultTheme from './theme.scss';
 
@@ -11,11 +12,10 @@ class IndexRoute extends React.PureComponent {
             <div className={this.props.theme.wrapper}>
                 <br />
                 <br />
-                Yooooooo!
+                Default Route!
             </div>
         );
     }
 }
 
-
-export default IndexRoute;
+export default hot(module)(IndexRoute);

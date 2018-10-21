@@ -158,7 +158,6 @@ module.exports = {
         }],
     },
     plugins: [
-        new webpack.HotModuleReplacementPlugin(),
         new webpack.IgnorePlugin(/webpack-stats\.json$/),
         new webpack.DefinePlugin({
             process: {
@@ -170,6 +169,8 @@ module.exports = {
         webpackIsomorphicToolsPlugin.development(),
     ],
     devServer: {
+        hot: true,
+        publicPath: 'http://localhost:3000/',
         headers: {
             'Access-Control-Allow-Origin': '*'
         }

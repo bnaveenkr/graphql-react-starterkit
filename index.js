@@ -1,9 +1,6 @@
 require('@babel/register')({
     presets: [
         ["@babel/preset-env", {
-            'targets': {
-                'node': 'current',
-            }
         }],
         "@babel/preset-react",
     ],
@@ -27,7 +24,7 @@ const DEVELOPMENT = process.env.NODE_ENV !== 'production';
 if (DEVELOPMENT) {
     if (!require('piping')({ // eslint-disable-line global-require
         hook: true,
-        ignore: /(\/\.|~$|\.json|\.scss|\.log$|client|common)/i,
+        ignore: /(\/\.|~$|\.json|client|components|\.scss|\.log$)/i,
     })) {
         return;
     }
@@ -35,7 +32,7 @@ if (DEVELOPMENT) {
 
 const WebpackIsomorphicTools = require('webpack-isomorphic-tools');
 global.webpackIsomorphicTools = new WebpackIsomorphicTools(isomorphicConfig).server(__dirname, () => {
-    const Server = require('./src/server'); // eslint-disable-line global-require
+    const Server = require('./src/server').default; // eslint-disable-line global-require
     const server = new Server();
     server.start();
 });
